@@ -1,7 +1,8 @@
 const fs = require('fs');
-const { Client, Collection, Intents, Interaction } = require('discord.js');
-const { token } = require('./config.json');
 const path = require('path');
+const { Client, Collection, Intents } = require('discord.js');
+require('dotenv').config();
+const token = process.env.TOKEN;
 
 // Create a new client instance
 const client = new Client({

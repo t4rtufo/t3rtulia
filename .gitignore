@@ -3,7 +3,8 @@ node_modules
 
 # Environment variables
 config.json
+.env
 
 # output content
 **/audio*
-**/stats*
+**/stats.json
