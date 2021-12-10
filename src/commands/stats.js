@@ -7,6 +7,12 @@ module.exports = {
     .setDescription('Estadísticas de uso de este comando'),
 
   async execute(interaction) {
+    if (!interaction.channel) {
+      return interaction.reply({
+        content: 'Direct messages are not admitted',
+        ephemeral: true
+      });
+    }
     const guildID = interaction.guildId;
     const users = getStats(guildID);
 
