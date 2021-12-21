@@ -2,10 +2,15 @@ const fs = require('fs');
 const path = require('path');
 const { Client, Collection, Intents } = require('discord.js');
 require('dotenv').config();
+
 const token = process.env.TOKEN;
 
 // Create a new client instance
 const client = new Client({
+  presence: {
+    activities: [{ name: 'Pasión de gavilanes', type: 'WATCHING' }],
+    status: 'idle'
+  },
   intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS]
 });
 

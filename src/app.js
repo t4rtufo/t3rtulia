@@ -6,14 +6,14 @@ require('dotenv').config();
 
 //Settings
 const app = express();
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3100);
+app.use(express.static(path.join(__dirname, 'public')));
 
 //Middlewares
 //app.use(morgan('dev'));
 
-app.use((req, res, next) => {
-  res.sendFile(path.join(__dirname, 'view', 'index.html'));
-});
+//Route
+app.use('/', require('./routes/bot.routes'));
 
 //Excecuting server
 app.listen(app.get('port'), () => {
