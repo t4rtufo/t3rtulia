@@ -1,7 +1,8 @@
 const axios = require('axios');
+require('dotenv').config();
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:3000/api',
+  baseURL: `http://127.0.0.1:${process.env.PORT || 3000}/api`,
   headers: {
     'Content-Type': 'application/json'
   }
