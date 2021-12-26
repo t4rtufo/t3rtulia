@@ -9,6 +9,12 @@ module.exports = {
     ),
 
   async execute(interaction) {
+    if (!interaction.channel) {
+      return interaction.reply({
+        content: 'Direct messages are not admitted',
+        ephemeral: true
+      });
+    }
     const channelID = interaction.channelId;
     const channelName = interaction.channel.name;
 
