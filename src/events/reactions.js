@@ -8,11 +8,11 @@ module.exports = {
     const currentChannel = await services.getChannel(
       message.channelId
     );
-    if (!currentChannel.reactions) return;
-
-    const emojis = emojify(message.content);
-    for (const emoji of emojis) {
-      message.react(emoji);
+    if (currentChannel?.reactions) {
+      const emojis = emojify(message.content);
+      for (const emoji of emojis) {
+        message.react(emoji);
+      }
     }
   }
 };
