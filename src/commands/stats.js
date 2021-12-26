@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const getStats = require('../utils/getStats');
+const getStats = require('../utils/api/getStats');
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -14,8 +14,7 @@ module.exports = {
       });
     }
     const guildID = interaction.guildId;
-    const users = getStats(guildID);
-
+    const users = await getStats(guildID);
     let results = {
       color: '#8EA46D',
       title: 'Estadísticas',
@@ -30,22 +29,22 @@ module.exports = {
         fields: [
           { name: '\u200B', value: '\u200B' },
           {
-            name: `:first_place: ${users[0].username}`,
-            value: `${users[0].guilds[guildID]} usos`
+            name: `:first_place: ${users[0].nickname}`,
+            value: `${users[0].timesUsed} usos`
           }
         ]
       };
     }
     if (users.length > 1)
       results.fields.push({
-        name: `:second_place: ${users[1].username}`,
-        value: `${users[1].guilds[guildID]} usos`
+        name: `:second_place: ${users[1].nickname}`,
+        value: `${users[1].timesUsed} usos`
       });
 
     if (users.length > 2)
       results.fields.push({
-        name: `:third_place: ${users[2].username}`,
-        value: `${users[2].guilds[guildID]} usos`
+        name: `:third_place: ${users[2].nickname}`,
+        value: `${users[2].timesUsed} usos`
       });
 
     await interaction.reply({ embeds: [results] });

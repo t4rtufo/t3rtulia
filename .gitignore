@@ -8,3 +8,6 @@ config.json
 # output content
 **/audio*
 **/stats.json
+
+# nothing to see here
+test.js

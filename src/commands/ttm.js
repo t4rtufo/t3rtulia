@@ -5,7 +5,7 @@ const wait = require('util').promisify(setTimeout);
 const path = require('path');
 
 const tts = require('../utils/tts');
-const updateStats = require('../utils/updateStats');
+const updateStats = require('../utils/api/updateStats');
 
 const colors = [
   'WHITE',
@@ -65,7 +65,7 @@ module.exports = {
     const audio = await tts(text, language);
     await wait(1500);
     await updateStats({
-      userID,
+      _id: userID,
       username,
       nickname,
       avatar,

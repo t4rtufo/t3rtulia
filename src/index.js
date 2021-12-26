@@ -11,7 +11,12 @@ const client = new Client({
     activities: [{ name: 'Pasión de gavilanes', type: 'WATCHING' }],
     status: 'idle'
   },
-  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MEMBERS]
+  intents: [
+    Intents.FLAGS.GUILDS,
+    Intents.FLAGS.GUILD_MEMBERS,
+    Intents.FLAGS.GUILD_MESSAGES
+  ],
+  partials: ['CHANNEL']
 });
 
 // Retrieving commands
