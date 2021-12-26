@@ -1,6 +1,6 @@
 const express = require('express');
 
-const morgan = require('morgan');
+//const morgan = require('morgan');
 const path = require('path');
 require('dotenv').config();
 
@@ -13,7 +13,7 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, 'public')));
 
 //Middlewares
-app.use(morgan('dev'));
+//app.use(morgan('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
