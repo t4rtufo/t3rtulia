@@ -7,9 +7,8 @@ module.exports = {
     .setDescription(
       'Activa o desactiva las reacciones en este canal'
     ),
-
   async execute(interaction) {
-    if (!interaction.channel) {
+    if (interaction.channel.type == 'DM') {
       return interaction.reply({
         content: 'Direct messages are not admitted',
         ephemeral: true
