@@ -10,7 +10,7 @@ Discord bot which converts text to an mp3 file
 
 Where "text" is the what you want to convert
 
-and "accent" modifies the way the text is goint to sound
+and "accent" modifies the way the text is going to sound
 
 ```bash
 /stats
